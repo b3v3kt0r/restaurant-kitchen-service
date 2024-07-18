@@ -13,7 +13,7 @@ class DishAdmin(admin.ModelAdmin):
 
 @admin.register(DishType)
 class DishTypeAdmin(admin.ModelAdmin):
-    pass
+    search_fields = ["name"]
 
 
 @admin.register(Cook)
