@@ -8,6 +8,12 @@ from restaurant_kitchen_service import settings
 class DishType(models.Model):
     name = models.CharField(max_length=255)
 
+    class Meta:
+        ordering = ["name"]
+
+    def __str__(self):
+        return self.name
+
 
 class Dish(models.Model):
     name = models.CharField(max_length=255)
@@ -19,6 +25,15 @@ class Dish(models.Model):
     cooks = models.ManyToManyField(settings.AUTH_USER_MODEL,
                                    related_name="dishes")
 
+    class Meta:
+        ordering = ["name"]
+
+    def __str__(self):
+        return f"{self.name} (price: {self.price}, dish type: {self.dish_type.name})"
 
 class Cook(AbstractUser):
     years_of_experience = models.IntegerField(validators=[MinValueValidator(0)])
+
+    class Meta:
+        ordering = ["username"]
+
