@@ -4,7 +4,7 @@
   {% if dish_list %}
     {% for dish in dish_list %}
       <ul>
-        <li><a href="#">{{ dish.name }}, Price: {{ dish.price }} Dish type: {{ dish.dish_type }}</a></li>
+        <li><a href="{% url 'kitchen:dish_detail' dish.id %}">{{ dish.name }}, Price: {{ dish.price }} Dish type: {{ dish.dish_type }}</a></li>
       </ul>
     {% endfor %}
   {% else %}

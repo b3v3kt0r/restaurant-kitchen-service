@@ -26,8 +26,17 @@ class DishTypeListView(generic.ListView):
 class DishListView(generic.ListView):
     model = Dish
     template_name = "kitchen/dish_list.html"
+    queryset = Dish.objects.prefetch_related("dish_type")
+
+
+class DishDetailView(generic.DetailView):
+    model = Dish
 
 
 class CookListView(generic.ListView):
     model = Cook
     template_name = "kitchen/cook_list.html"
+
+
+class CookDetailView(generic.DetailView):
+    model = Cook
