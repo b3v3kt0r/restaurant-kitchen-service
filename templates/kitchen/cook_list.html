@@ -2,12 +2,26 @@
 {% block content %}
   <h1>Cooks list</h1>
   {% if cook_list %}
-    {% for cook in cook_list %}
-      <ul>
-        <li><a href="{% url 'kitchen:cook_detail' cook.id %}">{{ cook }}</a></li>
-      </ul>
-    {% endfor %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Years of experience</th>
+      </tr>
+      {% for cook in cook_list %}
+        <tr>
+          <td>{{ cook.id }}</td>
+          <td><a href="{{ cook.id }}">{{ cook.username }} {% if user == cook %} (Me){% endif %}</a></td>
+          <td>{{ cook.first_name }}</td>
+          <td>{{ cook.last_name }}</td>
+          <td>{{ cook.license_number }}</td>
+        </tr>
+      {% endfor %}
+    </table>
   {% else %}
-    <p>There are no cooks!</p>
+    <p>There are no cooks in the service.</p>
   {% endif %}
+  
 {% endblock %}
