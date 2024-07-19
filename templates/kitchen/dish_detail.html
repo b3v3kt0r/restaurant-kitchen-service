@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Dish: {{ dish.name }}</h1>
+  <h1>Dish: {{ dish.name }} <a href="{% url 'kitchen:dish_update' dish.id %}">Edit</a></h1>
   <p><strong>Price: </strong>{{ dish.price }}</p>
   <p>{{ dish.description }}</p>
   <div class="ml-3">
