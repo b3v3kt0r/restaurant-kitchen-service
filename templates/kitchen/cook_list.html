@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Cooks list</h1>
+  <h1>Cooks list<a href="{% url 'kitchen:cook_create' %}">+</a></h1>
   {% if cook_list %}
     <table class="table">
       <tr>
