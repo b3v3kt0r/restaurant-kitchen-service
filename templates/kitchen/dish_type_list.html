@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Dish Types list</h1>
+  <h1>Dish Types list<a href="{% url 'kitchen:dish_type_create' %}">+</a></h1>
   {% if dish_type_list %}
     {% for dish_type in dish_type_list %}
       <ul>
@@ -8,6 +8,6 @@
       </ul>
     {% endfor %}
   {% else %}
-    <p>There are not dish types!</p>
+    <p>There are no dish types!</p>
   {% endif %}
 {% endblock %}
