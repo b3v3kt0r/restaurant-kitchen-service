@@ -4,7 +4,7 @@
   {% if cook_list %}
     {% for cook in cook_list %}
       <ul>
-        <li><a href="#">{{ cook }}</a></li>
+        <li><a href="{% url 'kitchen:cook_detail' cook.id %}">{{ cook }}</a></li>
       </ul>
     {% endfor %}
   {% else %}
