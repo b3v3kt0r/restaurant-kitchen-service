@@ -108,3 +108,5 @@ class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Cook
     success_url = reverse_lazy("kitchen:cook_list")
     template_name = "kitchen/cook_confirm_delete.html"
+
+
