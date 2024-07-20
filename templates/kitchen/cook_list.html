@@ -1,6 +1,11 @@
 {% extends "base.html" %}
+{% load crispy_forms_filters %}
 {% block content %}
   <h1>Cooks list<a href="{% url 'kitchen:cook_create' %}">+</a></h1>
+  <form method="get" action="" class="form-inline">
+    {{ search_form|crispy }}
+    <input type="submit" value="🔎" class="btn btn-primary">
+  </form>
   {% if cook_list %}
     <table class="table">
       <tr>
@@ -16,7 +21,7 @@
           <td><a href="{{ cook.id }}">{{ cook.username }} {% if user == cook %} (Me){% endif %}</a></td>
           <td>{{ cook.first_name }}</td>
           <td>{{ cook.last_name }}</td>
-          <td>{{ cook.license_number }}</td>
+          <td>{{ cook.years_of_experience }}</td>
         </tr>
       {% endfor %}
     </table>
