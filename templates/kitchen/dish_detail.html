@@ -8,6 +8,13 @@
   <p>{{ dish.description }}</p>
   <div class="ml-3">
     <h3>Cooks:</h3>
+    {% if user in dish.cooks.all %}
+      <a href="{% url 'kitchen:dish_remove_cook' dish.id %}" class="btn btn-secondary link-to-page">Delete me from this
+        dish</a>
+    {% else %}
+      <a href="{% url 'kitchen:dish_assign_cook' dish.id %}" class="btn btn-secondary link-to-page">Assign me to that
+        dish</a>
+    {% endif %}
     {% for cook in dish.cooks.all %}
       <hr>
       <p class="text-muted">{{ cook.id }}</p>

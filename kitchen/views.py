@@ -110,3 +110,15 @@ class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
     template_name = "kitchen/cook_confirm_delete.html"
 
 
+def dish_assign_cook(request: HttpRequest, pk: int) -> HttpResponse:
+    dish = Dish.objects.get(id=pk)
+    dish.cooks.add(request.user)
+    context = {"dish": dish}
+    return render(request, "kitchen/dish_detail.html", context)
+
+
+def dish_remove_cook(request: HttpRequest, pk: int) -> HttpResponse:
+    dish = Dish.objects.get(id=pk)
+    dish.cooks.remove(request.user)
+    context = {"dish": dish}
+    return render(request, "kitchen/dish_detail.html", context)
