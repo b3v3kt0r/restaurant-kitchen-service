@@ -24,10 +24,16 @@ class Dish(models.Model):
                                   related_name="dishes")
     cooks = models.ManyToManyField(settings.AUTH_USER_MODEL,
                                    related_name="dishes")
+    image_name = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
         ordering = ["name"]
         verbose_name_plural = "dishes"
+
+    def get_image_url(self):
+        if self.image_name:
+            return f"{settings.STATIC_URL}img/{self.image_name}"
+        return f"{settings.STATIC_URL}img/default-dish.jpg"
 
     def __str__(self):
         return f"{self.name} (price: {self.price}, dish type: {self.dish_type.name})"

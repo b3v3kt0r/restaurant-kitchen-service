@@ -25,32 +25,19 @@
   </div>
   {% if dish_list %}
     <div class="row">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-body">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Price</th>
-                  <th>Dish Type</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for dish in dish_list %}
-                  <tr>
-                    <td>{{ dish.id }}</td>
-                    <td><a href="{% url 'kitchen:dish_detail' dish.id %}">{{ dish.name }}</a></td>
-                    <td>{{ dish.price }}</td>
-                    <td>{{ dish.dish_type.name }}</td>
-                  </tr>
-                {% endfor %}
-              </tbody>
-            </table>
+      {% for dish in dish_list %}
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="{{ dish.get_image_url }}" class="card-img-top" alt="{{ dish.name }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ dish.name }}</h5>
+              <p class="card-text">Price: ${{ dish.price }}</p>
+              <p class="card-text">Dish Type: {{ dish.dish_type.name }}</p>
+              <a href="{% url 'kitchen:dish_detail' dish.id %}" class="btn btn-primary">View Details</a>
+            </div>
           </div>
         </div>
-      </div>
+      {% endfor %}
     </div>
   {% else %}
     <div class="row">
