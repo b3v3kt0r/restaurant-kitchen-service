@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "kitchen",
     "crispy_forms",
     "crispy_bootstrap4",
+    "theme_material_kit"
 ]
 
 MIDDLEWARE = [
@@ -140,3 +141,5 @@ INTERNAL_IPS = [
 ]
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

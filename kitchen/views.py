@@ -10,7 +10,6 @@ from kitchen.forms import CookCreationForm, DishForm, CookYearsOfExperienceUpdat
 from kitchen.models import DishType, Dish, Cook
 
 
-@login_required
 def index(request: HttpRequest) -> HttpResponse:
     num_dishes = Dish.objects.count()
     num_dish_type = DishType.objects.count()

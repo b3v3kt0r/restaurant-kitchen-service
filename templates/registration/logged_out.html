@@ -1,5 +1,22 @@
-{% extends "base.html" %}
+{% extends "layouts/base_background.html" %}
+{% block title %}Logged Out{% endblock title %}
+
+{% block header %}{% endblock header %}
+
 {% block content %}
-  <p>Logged out!</p>
-  <a href="{% url 'login' %}">Click here to login again.</a>
-{% endblock %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-4 col-md-6 col-sm-8">
+      <div class="card">
+        <div class="card-header text-center">
+          <h4 class="card-title">Logged Out</h4>
+        </div>
+        <div class="card-body text-center">
+          <p>You have been successfully logged out.</p>
+          <a href="{% url 'login' %}" class="btn btn-primary mt-3">Click here to login again</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
