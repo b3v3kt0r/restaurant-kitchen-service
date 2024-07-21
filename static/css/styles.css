@@ -1,38 +1,12 @@
-body {
-    margin-top: 20px;
-}
-
 .sidebar-nav {
     padding: 0;
     list-style: none;
 }
 
-form.d-inline {
-  display: inline;
-  margin: 0;
-  padding: 0;
-}
-
-/* Вирівнювання кнопки */
-.btn-link {
-  background: none;
-  border: none;
-  color: inherit;
-  padding: 0;
-  font: inherit;
-  text-decoration: none;
+.table-actions {
   display: flex;
-  align-items: center; /* Вирівнює по вертикалі */
-}
-
-/* Вирівнювання іконки та тексту */
-.btn-link i {
-  margin-right: 0.5rem; /* Відступ між іконкою і текстом */
-}
-
-.btn-link p {
-  margin: 0;
-  line-height: 1; /* Зменшити відступи для вирівнювання тексту */
+  justify-content: center; /* Вирівнювання по горизонталі */
+  gap: 10px; /* Відстань між кнопками */
 }
 
 .form-control {
@@ -48,22 +22,15 @@ form.d-inline {
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-/* Стилі для статичного хедера з sticky */
-.navbar-container {
-  position: relative;
+
+
+/* Додає стиль для посилань у таблиці страв */
+.table a {
+  color: #007bff; /* Колір посилання */
+  text-decoration: underline; /* Підкреслення посилання */
 }
 
-.navbar {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 1000; /* Задає приоритет відображення */
-  background-color: #fff; /* Задає фон хедера */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Додає тінь для кращого вигляду */
-  border-radius: 0; /* Відключення округлення кутів */
-}
-
-/* Додає відступ до основного контенту, щоб хедер не перекривав його */
-main {
-  padding-top: 60px; /* Висота вашого хедера; змініть за потреби */
+.table a:hover {
+  color: #0056b3; /* Темніший колір при наведенні */
+  text-decoration: none; /* Прибирає підкреслення при наведенні */
 }

@@ -1,9 +1,10 @@
 {% extends "base_background.html" %}
 {% load crispy_forms_filters %}
 {% block title %}Dish List{% endblock title %}
-
+{% load static %}
+<head><link rel="stylesheet" href="{% static 'css/styles.css' %}"></head>
 {% block content %}
-<div class="container mt-5 pt-5"> <!-- Додано 'pt-5' для відступу зверху -->
+<div class="container mt-5 pt-5"> 
   <div class="row justify-content-between">
     <div class="col-12 mb-3">
       <h1 class="d-flex justify-content-between align-items-center">
