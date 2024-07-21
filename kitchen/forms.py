@@ -83,5 +83,6 @@ class CookSearchForm(forms.Form):
     years_of_experience = forms.IntegerField(
         required=False,
         label="",
-        widget=forms.NumberInput(attrs={"placeholder": "Search by years of experience"})
+        widget=forms.NumberInput(
+            attrs={"placeholder": "Search by years of experience"})
     )
