@@ -47,10 +47,11 @@
 }
 
 .card {
-    height: 400px; /* Встановити фіксовану висоту картки */
+    /* Встановити фіксовану висоту картки */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
 }
 
 .card-body {
