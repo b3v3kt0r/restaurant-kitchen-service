@@ -47,3 +47,23 @@ form.d-inline {
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
+/* Стилі для статичного хедера з sticky */
+.navbar-container {
+  position: relative;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Задає приоритет відображення */
+  background-color: #fff; /* Задає фон хедера */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Додає тінь для кращого вигляду */
+  border-radius: 0; /* Відключення округлення кутів */
+}
+
+/* Додає відступ до основного контенту, щоб хедер не перекривав його */
+main {
+  padding-top: 60px; /* Висота вашого хедера; змініть за потреби */
+}
