@@ -1,40 +1,55 @@
 {% extends "base_background.html" %}
 {% block title %}Dish Details{% endblock title %}
+{% load static %}
+<head>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
 {% block content %}
-<div class="container mt-5 pt-5">
-  <div class="card">
-    <div class="card-header d-flex justify-content-between align-items-center">
-      <h2 class="mb-0">Dish: {{ dish.name }}</h2>
-      <div>
-        <a href="{% url 'kitchen:dish_update' dish.id %}" class="btn btn-primary btn-sm">Edit</a>
-        <a href="{% url 'kitchen:dish_delete' dish.id %}" class="btn btn-danger btn-sm">Delete</a>
-      </div>
-    </div>
-    <div class="card-body">
-      <p><strong>Price:</strong> ${{ dish.price }}</p>
-      <p>{{ dish.description }}</p>
-      
-      <div class="mt-4">
-        <h4>Cooks:</h4>
-        <div class="mb-3">
-          {% if user in dish.cooks.all %}
-            <a href="{% url 'kitchen:dish_remove_cook' dish.id %}" class="btn btn-secondary">Delete me from this dish</a>
-          {% else %}
-            <a href="{% url 'kitchen:dish_assign_cook' dish.id %}" class="btn btn-secondary">Assign me to this dish</a>
-          {% endif %}
+  <div class="container mt-5 pt-5">
+    <div class="card">
+      <div class="row no-gutters">
+        <!-- Image column -->
+        <div class="col-md-4">
+          <img src="{{ dish.get_image_url }}" class="card-img" alt="{{ dish.name }}">
         </div>
-        {% for cook in dish.cooks.all %}
-          <div class="mb-3">
-            <hr>
-            <p class="text-muted"><strong>ID:</strong> {{ cook.id }}</p>
-            <p><strong>Name:</strong> {{ cook.first_name }} {{ cook.last_name }}</p>
-            <p><strong>Years of experience:</strong> {{ cook.years_of_experience }}</p>
+        <!-- Details column -->
+        <div class="col-md-8">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <h2 class="mb-0">Dish: {{ dish.name }}</h2>
+              <div>
+                <a href="{% url 'kitchen:dish_update' dish.id %}" class="btn btn-primary btn-sm">Edit</a>
+                <a href="{% url 'kitchen:dish_delete' dish.id %}" class="btn btn-danger btn-sm">Delete</a>
+              </div>
+            </div>
+            <p><strong>Price:</strong> ${{ dish.price }}</p>
+            <p>{{ dish.description }}</p>
+
+            <div class="mt-4">
+              <h4>Cooks:</h4>
+              <div class="mb-3">
+                {% if user in dish.cooks.all %}
+                  <a href="{% url 'kitchen:dish_remove_cook' dish.id %}" class="btn btn-secondary">Delete me from this
+                    dish</a>
+                {% else %}
+                  <a href="{% url 'kitchen:dish_assign_cook' dish.id %}" class="btn btn-secondary">Assign me to this
+                    dish</a>
+                {% endif %}
+              </div>
+              {% for cook in dish.cooks.all %}
+                <div class="mb-3">
+                  <hr>
+                  <p class="text-muted"><strong>ID:</strong> {{ cook.id }}</p>
+                  <p><strong>Name:</strong> {{ cook.first_name }} {{ cook.last_name }}</p>
+                  <p><strong>Years of experience:</strong> {{ cook.years_of_experience }}</p>
+                </div>
+              {% empty %}
+                <p>No cooks assigned to this dish!</p>
+              {% endfor %}
+            </div>
           </div>
-        {% empty %}
-          <p>No cooks assigned to this dish!</p>
-        {% endfor %}
+        </div>
       </div>
     </div>
   </div>
-</div>
 {% endblock %}
