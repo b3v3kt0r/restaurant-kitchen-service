@@ -32,8 +32,8 @@
                 <tr>
                   <th>ID</th>
                   <th>Name</th>
-                  <th>Update</th>
-                  <th>Delete</th>
+                  <th class="text-center">Update</th>
+                  <th class="text-center">Delete</th>
                 </tr>
               </thead>
               <tbody>
@@ -41,8 +41,12 @@
                   <tr>
                     <td>{{ dish_type.id }}</td>
                     <td>{{ dish_type.name }}</td>
-                    <td><a class="btn btn-warning btn-sm" href="{% url 'kitchen:dish_type_update' dish_type.id %}">⚙️</a></td>
-                    <td><a class="btn btn-danger btn-sm" href="{% url 'kitchen:dish_type_delete' dish_type.id %}">🗑️</a></td>
+                    <td class="text-center">
+                      <a class="btn btn-warning btn-sm" href="{% url 'kitchen:dish_type_update' dish_type.id %}">⚙️</a>
+                    </td>
+                    <td class="text-center">
+                      <a class="btn btn-danger btn-sm" href="{% url 'kitchen:dish_type_delete' dish_type.id %}">🗑️</a>
+                    </td>
                   </tr>
                 {% endfor %}
               </tbody>
