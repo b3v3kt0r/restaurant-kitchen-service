@@ -1,10 +1,26 @@
-{% extends "base.html" %}
+{% extends "base_background.html" %}
 {% load crispy_forms_filters %}
+{% block title %}{{ object|yesno:"Update,Create" }} Dish Type{% endblock title %}
 {% block content %}
-  <h1>{{ object|yesno:"Update,Create" }} dish type</h1>
-  <form action="" method="post" novalidate>
-    {% csrf_token %}
-    {{ form|crispy }}
-    <input class="btn btn-primary" type="submit" value="Submit">
-  </form>
+<div class="container mt-5 pt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="mb-0">{{ object|yesno:"Update,Create" }} Dish Type</h3>
+        </div>
+        <div class="card-body">
+          <form action="" method="post" novalidate>
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div class="d-flex justify-content-between mt-4">
+              <input class="btn btn-primary" type="submit" value="Submit">
+              <a href="{% url 'kitchen:dish_type_list' %}" class="btn btn-secondary">Cancel</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
