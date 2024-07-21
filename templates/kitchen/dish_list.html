@@ -1,29 +1,64 @@
-{% extends "base.html" %}
+{% extends "base_background.html" %}
 {% load crispy_forms_filters %}
+{% block title %}Dish List{% endblock title %}
+
 {% block content %}
-  <h1>Dish list<a class="btn btn-primary" href="{% url 'kitchen:dish_create' %}">+</a></h1>
-  <form method="get" action="" class="form-inline">
-    {{ search_form|crispy }}
-    <input type="submit" value="🔎" class="btn btn-primary">
-  </form>
+<div class="container mt-5 pt-5"> <!-- Додано 'pt-5' для відступу зверху -->
+  <div class="row justify-content-between">
+    <div class="col-12 mb-3">
+      <h1 class="d-flex justify-content-between align-items-center">
+        Dish List
+        <a class="btn btn-primary" href="{% url 'kitchen:dish_create' %}">+</a>
+      </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <form method="get" action="" class="form-inline mb-3">
+        <div class="input-group">
+          {{ search_form|crispy }}
+          <button type="submit" class="btn btn-primary ml-2">🔎</button>
+        </div>
+      </form>
+    </div>
+  </div>
   {% if dish_list %}
-    <table class="table">
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Dish type</th>
-      </tr>
-    {% for dish in dish_list %}
-        <tr>
-          <td>{{ dish.id }}</td>
-          <td><a href="{{ dish.id }}">{{ dish.name }}</a></td>
-          <td>{{ dish.price }}</td>
-          <td>{{ dish.dish_type.name }}</td>
-        </tr>
-      {% endfor %}
-    </table>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Dish Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for dish in dish_list %}
+                  <tr>
+                    <td>{{ dish.id }}</td>
+                    <td><a href="{% url 'kitchen:dish_detail' dish.id %}">{{ dish.name }}</a></td>
+                    <td>{{ dish.price }}</td>
+                    <td>{{ dish.dish_type.name }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
   {% else %}
-    <p>There are no dishes!</p>
+    <div class="row">
+      <div class="col-12">
+        <div class="alert alert-warning" role="alert">
+          There are no dishes!
+        </div>
+      </div>
+    </div>
   {% endif %}
-{% endblock %}
+</div>
+{% endblock content %}
