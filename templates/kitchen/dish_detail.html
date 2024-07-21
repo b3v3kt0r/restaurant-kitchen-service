@@ -1,27 +1,40 @@
-{% extends "base.html" %}
+{% extends "base_background.html" %}
+{% block title %}Dish Details{% endblock title %}
 {% block content %}
-  <h1>Dish: {{ dish.name }}
-    <a href="{% url 'kitchen:dish_update' dish.id %}" class="btn btn-primary">Edit</a>
-    <a href="{% url 'kitchen:dish_delete' dish.id %}" class="btn btn-danger link-to-page">Delete</a>
-  </h1>
-  <p><strong>Price: </strong>{{ dish.price }}</p>
-  <p>{{ dish.description }}</p>
-  <div class="ml-3">
-    <h3>Cooks:</h3>
-    {% if user in dish.cooks.all %}
-      <a href="{% url 'kitchen:dish_remove_cook' dish.id %}" class="btn btn-secondary link-to-page">Delete me from this
-        dish</a>
-    {% else %}
-      <a href="{% url 'kitchen:dish_assign_cook' dish.id %}" class="btn btn-secondary link-to-page">Assign me to that
-        dish</a>
-    {% endif %}
-    {% for cook in dish.cooks.all %}
-      <hr>
-      <p class="text-muted">{{ cook.id }}</p>
-      <p>{{ cook.first_name }} {{ cook.last_name }}</p>
-      <p>Years of experience: {{ cook.years_of_experience }}</p>
-    {% empty %}
-      <p>No cooks for this meal!</p>
-    {% endfor %}
+<div class="container mt-5 pt-5">
+  <div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h2 class="mb-0">Dish: {{ dish.name }}</h2>
+      <div>
+        <a href="{% url 'kitchen:dish_update' dish.id %}" class="btn btn-primary btn-sm">Edit</a>
+        <a href="{% url 'kitchen:dish_delete' dish.id %}" class="btn btn-danger btn-sm">Delete</a>
+      </div>
+    </div>
+    <div class="card-body">
+      <p><strong>Price:</strong> ${{ dish.price }}</p>
+      <p>{{ dish.description }}</p>
+      
+      <div class="mt-4">
+        <h4>Cooks:</h4>
+        <div class="mb-3">
+          {% if user in dish.cooks.all %}
+            <a href="{% url 'kitchen:dish_remove_cook' dish.id %}" class="btn btn-secondary">Delete me from this dish</a>
+          {% else %}
+            <a href="{% url 'kitchen:dish_assign_cook' dish.id %}" class="btn btn-secondary">Assign me to this dish</a>
+          {% endif %}
+        </div>
+        {% for cook in dish.cooks.all %}
+          <div class="mb-3">
+            <hr>
+            <p class="text-muted"><strong>ID:</strong> {{ cook.id }}</p>
+            <p><strong>Name:</strong> {{ cook.first_name }} {{ cook.last_name }}</p>
+            <p><strong>Years of experience:</strong> {{ cook.years_of_experience }}</p>
+          </div>
+        {% empty %}
+          <p>No cooks assigned to this dish!</p>
+        {% endfor %}
+      </div>
+    </div>
   </div>
+</div>
 {% endblock %}

@@ -1,26 +1,39 @@
-{% extends "base.html" %}
+{% extends "base_background.html" %}
+{% block title %}Cook Details{% endblock title %}
 {% block content %}
-  <h1>Cook username: {{ cook.username }}
-    <a href="{% url 'kitchen:cook_update' cook.id %}" class="btn btn-primary link-to-page">
-      Update
-    </a>
-    <a href="{% url 'kitchen:cook_delete' cook.id %}" class="btn btn-danger link-to-page">
-      Delete
-    </a>
-  </h1>
-  <p><strong>First name:</strong> {{ cook.first_name }}</p>
-  <p><strong>Last name:</strong> {{ cook.last_name }}</p>
-  <p><strong>Years of experience:</strong> {{ cook.years_of_experience }}</p>
-  <p><strong>Is staff:</strong> {{ cook.is_staff }}</p>
-  <div class="ml-3">
-    <h4>Dishes:</h4>
-    {% for dish in cook.dishes.all %}
-      <hr>
-      <p><strong>Name:</strong> {{ dish.name }}</p>
-      <p><strong>Dish type:</strong> {{ dish.dish_type.name }}</p>
-      <p class="text-muted"><strong>Id:</strong> {{ dish.id }}</p>
-    {% empty %}
-      <p>No dishes!</p>
-    {% endfor %}
+<div class="container mt-5 pt-5">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h3 class="mb-0">Cook username: {{ cook.username }}</h3>
+          <div>
+            <a href="{% url 'kitchen:cook_update' cook.id %}" class="btn btn-primary btn-sm">Update</a>
+            <a href="{% url 'kitchen:cook_delete' cook.id %}" class="btn btn-danger btn-sm">Delete</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <p><strong>First name:</strong> {{ cook.first_name }}</p>
+          <p><strong>Last name:</strong> {{ cook.last_name }}</p>
+          <p><strong>Years of experience:</strong> {{ cook.years_of_experience }}</p>
+          <p><strong>Is staff:</strong> {{ cook.is_staff }}</p>
+          
+          <div class="mt-4">
+            <h4>Dishes:</h4>
+            {% for dish in cook.dishes.all %}
+              <div class="mb-3">
+                <hr>
+                <p><strong>Name:</strong> {{ dish.name }}</p>
+                <p><strong>Dish type:</strong> {{ dish.dish_type.name }}</p>
+                <p class="text-muted"><strong>Id:</strong> {{ dish.id }}</p>
+              </div>
+            {% empty %}
+              <p>No dishes!</p>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
 {% endblock %}
