@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
@@ -15,6 +16,7 @@ from kitchen.forms import (
 from kitchen.models import DishType, Dish, Cook
 
 
+@login_required
 def index(request: HttpRequest) -> HttpResponse:
     num_dishes = Dish.objects.count()
     num_dish_type = DishType.objects.count()
