@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     "kitchen",
     "crispy_forms",
     "crispy_bootstrap4",
-    "theme_material_kit"
+    "theme_material_kit",
+    "storages"
 ]
 
 MIDDLEWARE = [
