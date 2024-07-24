@@ -24,7 +24,7 @@ class Dish(models.Model):
                                   related_name="dishes")
     cooks = models.ManyToManyField(settings.AUTH_USER_MODEL,
                                    related_name="dishes")
-    image_name = models.ImageField(upload_to="media/", null=True, blank=True)
+    image_name = models.ImageField(null=True, blank=True)
 
     class Meta:
         ordering = ["name"]
@@ -36,7 +36,7 @@ class Dish(models.Model):
 
 class Cook(AbstractUser):
     years_of_experience = models.IntegerField(default=0, validators=[MinValueValidator(0)])
-    image_name = models.ImageField(upload_to="media/", null=True, blank=True)
+    image_name = models.ImageField(null=True, blank=True)
 
     class Meta:
         ordering = ["username"]
