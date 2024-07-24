@@ -24,16 +24,11 @@ class Dish(models.Model):
                                   related_name="dishes")
     cooks = models.ManyToManyField(settings.AUTH_USER_MODEL,
                                    related_name="dishes")
-    image_name = models.CharField(max_length=255, blank=True, null=True)
+    image_name = models.ImageField(upload_to="media/", null=True, blank=True)
 
     class Meta:
         ordering = ["name"]
         verbose_name_plural = "dishes"
-
-    def get_image_url(self):
-        if self.image_name:
-            return f"{settings.STATIC_URL}img/{self.image_name}"
-        return f"{settings.STATIC_URL}img/default-dish.jpg"
 
     def __str__(self):
         return f"{self.name} (price: {self.price}, dish type: {self.dish_type.name})"
@@ -41,15 +36,10 @@ class Dish(models.Model):
 
 class Cook(AbstractUser):
     years_of_experience = models.IntegerField(default=0, validators=[MinValueValidator(0)])
-    image_name = models.CharField(max_length=255, blank=True, null=True)
+    image_name = models.ImageField(upload_to="media/", null=True, blank=True)
 
     class Meta:
         ordering = ["username"]
-
-    def get_image_url(self):
-        if self.image_name:
-            return f"{settings.STATIC_URL}img/{self.image_name}"
-        return f"{settings.STATIC_URL}img/default-avatar.jpg"
 
     def __str__(self):
         return f"{self.username}: {self.first_name} {self.last_name}"

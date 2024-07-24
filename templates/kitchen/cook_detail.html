@@ -9,8 +9,8 @@
     <div class="card">
       <div class="row no-gutters">
         <div class="col-md-4">
-          {% if cook.get_image_url %}
-            <img src="{{ cook.get_image_url }}" class="card-img" alt="{{ cook.username }}">
+          {% if cook.image.url %}
+            <img src="{{ cook.image.url }}" class="card-img" alt="{{ cook.username }}">
           {% else %}
             <img src="{% static 'img/default_cook.jpg' %}" class="card-img" alt="Default Image">
           {% endif %}
