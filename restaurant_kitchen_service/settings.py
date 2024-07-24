@@ -163,6 +163,7 @@ STORAGES = {
             "oauth2_refresh_token": "-iQS3myJ-KUAAAAAAAAAAWz5rRJmjtCeDmNaNpW2Z67Xu3POpTGkccyKMENLDfGj",
             "app_secret": "7dzbfwaxfh7064b",
             "app_key": "p0a3p8kfi1twyfu",
+            "root_path": "/"
         },
     },
     "staticfiles": {
