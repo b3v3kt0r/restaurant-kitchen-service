@@ -147,26 +147,25 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-DEFAULT_FILE_STORAGE = "storages.backends.dropbox.DropboxStorage"
-STATICFILES_STORAGE = "storages.backends.dropbox.DropboxStorage"
-DROPBOX_OAUTH2_TOKEN = "sl.B5lGiG-4HDeP845F2xfjJSVc1qvah_mZXJkQBjAV0Uii6_TJ94pydItcrCy6OLx1-W8OpnjYnsjNvpyuQFqmaUPq51-9ejzielojOTYuYTGycoXlK6OfIr-QGBJcEodaWbMDm66XAbpY"
-DROPBOX_OAUTH2_REFRESH_TOKEN = "-iQS3myJ-KUAAAAAAAAAAWz5rRJmjtCeDmNaNpW2Z67Xu3POpTGkccyKMENLDfGj"
-DROPBOX_ACCESS_TOKEN = "sl.B5lowacyoviEzEW7jf4GpMxSSI_rvG_zVVf4NH92YMX2VR8biwyygpXi86pdin2hyhbbwFfSqhLVOvFXFQyjZ6OPqw9UbOIfh6Jy-3j0kWOIJqnfGwtvofwfFlUMsrFT8XYeS58N3UG0"
-DROPBOX_APP_SECRET = "7dzbfwaxfh7064b"
-DROPBOX_APP_KEY = "p0a3p8kfi1twyfu"
+# DEFAULT_FILE_STORAGE = "storages.backends.dropbox.DropboxStorage"
+# STATICFILES_STORAGE = "storages.backends.dropbox.DropboxStorage"
+# DROPBOX_OAUTH2_TOKEN = "sl.B5lGiG-4HDeP845F2xfjJSVc1qvah_mZXJkQBjAV0Uii6_TJ94pydItcrCy6OLx1-W8OpnjYnsjNvpyuQFqmaUPq51-9ejzielojOTYuYTGycoXlK6OfIr-QGBJcEodaWbMDm66XAbpY"
+# DROPBOX_OAUTH2_REFRESH_TOKEN = "-iQS3myJ-KUAAAAAAAAAAWz5rRJmjtCeDmNaNpW2Z67Xu3POpTGkccyKMENLDfGj"
+# DROPBOX_ACCESS_TOKEN = "sl.B5lowacyoviEzEW7jf4GpMxSSI_rvG_zVVf4NH92YMX2VR8biwyygpXi86pdin2hyhbbwFfSqhLVOvFXFQyjZ6OPqw9UbOIfh6Jy-3j0kWOIJqnfGwtvofwfFlUMsrFT8XYeS58N3UG0"
+# DROPBOX_APP_SECRET = "7dzbfwaxfh7064b"
+# DROPBOX_APP_KEY = "p0a3p8kfi1twyfu"
 
-# STORAGES = {
-#     "default": {
-#         "BACKEND": "storages.backends.dropbox.DropboxStorage",
-#         "OPTIONS": {
-#             "oauth2_access_token": "sl.B5ldct5-y4F_OdHIChmmw95pRsTVcc9cpbLQZiK1IPYI4nt88ghe8tGI-XACiR4DwhrJh3JWquZ41WTBxUuk2R1AZI1molYkHzUZ70ukCmlXbF4UpN-_q5eZTij2-vSUQ8mUHZZCQ_V_",
-#             "oauth2_refresh_token": "-iQS3myJ-KUAAAAAAAAAAWz5rRJmjtCeDmNaNpW2Z67Xu3POpTGkccyKMENLDfGj",
-#             "app_secret": "7dzbfwaxfh7064b",
-#             "app_key": "p0a3p8kfi1twyfu",
-#             "root_path": "/media_project/"
-#         },
-#     },
-#     "staticfiles": {
-#         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-#     },
-# }
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.dropbox.DropboxStorage",
+        "OPTIONS": {
+            "oauth2_access_token": "sl.B5o6asrIMtCOjnRd5Va8r9mPjItzTSjHVae1Srv2Wt8xpRMaUtVSPO8-S8zqvlWvD4Tvgl6hIPSwSU4jdf1FqPA9pYtL5YxEfJ-H5kFS6apuwRrxi2zFoyGiyus2x5uABhusDQu_01Qfj6IUVVrWy4s",
+            "oauth2_refresh_token": "-iQS3myJ-KUAAAAAAAAAAWz5rRJmjtCeDmNaNpW2Z67Xu3POpTGkccyKMENLDfGj",
+            "app_secret": "7dzbfwaxfh7064b",
+            "app_key": "p0a3p8kfi1twyfu",
+        },
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
