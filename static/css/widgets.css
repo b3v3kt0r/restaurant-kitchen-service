@@ -122,18 +122,11 @@
     cursor: pointer;
 }
 
-.selector-add {
-    background: url(../img/icons/add.svg);
-}
 
 .active.selector-add:focus, .active.selector-add:hover {
     background-position: 0 -112px;
 }
 
-.selector-remove {
-    background: url(../img/icons/add.svg);
-    transform: scaleX(-1);
-}
 
 .active.selector-remove:focus, .active.selector-remove:hover {
     background-position: 0 -80px;
