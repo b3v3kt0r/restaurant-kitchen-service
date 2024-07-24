@@ -161,7 +161,7 @@ STORAGES = {
     "default": {
         "BACKEND": "storages.backends.dropbox.DropboxStorage",
         "OPTIONS": {
-            "oauth2_access_token": "sl.B5o6asrIMtCOjnRd5Va8r9mPjItzTSjHVae1Srv2Wt8xpRMaUtVSPO8-S8zqvlWvD4Tvgl6hIPSwSU4jdf1FqPA9pYtL5YxEfJ-H5kFS6apuwRrxi2zFoyGiyus2x5uABhusDQu_01Qfj6IUVVrWy4s",
+            "oauth2_access_token": "sl.B5pbR69GsiV54rhZDd08GW0BuxGTzvtupwGQ7lLK-X2t4FAR_L6M3vRLRa9P3ys9VUAgErgkQ_8LbG68Iso6kxS557SLsUTlxHO6HisTR5C0WpLrl6_oOlA_JVRGzOggrsGvf9v3NqQgs9srrCpOnC8",
             "oauth2_refresh_token": "-iQS3myJ-KUAAAAAAAAAAWz5rRJmjtCeDmNaNpW2Z67Xu3POpTGkccyKMENLDfGj",
             "app_secret": "7dzbfwaxfh7064b",
             "app_key": "p0a3p8kfi1twyfu",
