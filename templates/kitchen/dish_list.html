@@ -30,7 +30,7 @@
         {% for dish in dish_list %}
           <div class="col-md-4 mb-4">
             <div class="card">
-              <img src="{{ dish.image_name }}" class="card-img-top" alt="{{ dish.name }}">
+              <img src="{{ dish.image_name.url }}" class="card-img-top" alt="{{ dish.name }}">
               <div class="card-body">
                 <h5 class="card-title">{{ dish.name }}</h5>
                 <p class="card-text">Price: ${{ dish.price }}</p>
