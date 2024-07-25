@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_bootstrap4",
     "theme_material_kit",
-    "django_dropbox_storage",
     "storages"
 ]
 
@@ -87,11 +86,9 @@ DATABASES = {
     }
 }
 #dropbox
-DEFAULT_FILE_STORAGE = "django_dropbox_storage.storage.DropboxStorage"
-DROPBOX_CONSUMER_KEY = "p0a3p8kfi1twyfu"
-DROPBOX_CONSUMER_SECRET = "7dzbfwaxfh7064b"
-DROPBOX_ACCESS_TOKEN = "sl.B5shU1TWZowoaOh68fE-226pM4bLlSv_BrqOr-aUAQrPj42EzklXKLM9qgyRU9uanub3UCq2Cxk5WqqIfJ2Zae9DZsSJ0fd4KNlj8WuX0pORwxaNC2yWW7sqGbOqUYAbw-o4yFd9eRmZDRZaPIs0ST4"
-DROPBOX_ROOT_FOLDER = "/media_project"
+DEFAULT_FILE_STORAGE = "storages.backends.dropbox.DropboxStorage"
+DROPBOX_OAUTH2_TOKEN = "sl.B5shU1TWZowoaOh68fE-226pM4bLlSv_BrqOr-aUAQrPj42EzklXKLM9qgyRU9uanub3UCq2Cxk5WqqIfJ2Zae9DZsSJ0fd4KNlj8WuX0pORwxaNC2yWW7sqGbOqUYAbw-o4yFd9eRmZDRZaPIs0ST4"
+DROPBOX_ROOT_PATH = "/media_project"
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES["default"].update(db_from_env)
