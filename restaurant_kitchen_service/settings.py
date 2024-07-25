@@ -90,7 +90,7 @@ DATABASES = {
 DEFAULT_FILE_STORAGE = "django_dropbox_storage.storage.DropboxStorage"
 DROPBOX_CONSUMER_KEY = "p0a3p8kfi1twyfu"
 DROPBOX_CONSUMER_SECRET = "7dzbfwaxfh7064b"
-DROPBOX_ACCESS_TOKEN = "sl.B5pbR69GsiV54rhZDd08GW0BuxGTzvtupwGQ7lLK-X2t4FAR_L6M3vRLRa9P3ys9VUAgErgkQ_8LbG68Iso6kxS557SLsUTlxHO6HisTR5C0WpLrl6_oOlA_JVRGzOggrsGvf9v3NqQgs9srrCpOnC8"
+DROPBOX_ACCESS_TOKEN = "sl.B5shU1TWZowoaOh68fE-226pM4bLlSv_BrqOr-aUAQrPj42EzklXKLM9qgyRU9uanub3UCq2Cxk5WqqIfJ2Zae9DZsSJ0fd4KNlj8WuX0pORwxaNC2yWW7sqGbOqUYAbw-o4yFd9eRmZDRZaPIs0ST4"
 DROPBOX_ROOT_FOLDER = "/media_project"
 
 db_from_env = dj_database_url.config(conn_max_age=500)
