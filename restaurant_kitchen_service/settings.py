@@ -86,7 +86,7 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-
+#dropbox
 DEFAULT_FILE_STORAGE = "django_dropbox_storage.storage.DropboxStorage"
 DROPBOX_CONSUMER_KEY = "p0a3p8kfi1twyfu"
 DROPBOX_CONSUMER_SECRET = "7dzbfwaxfh7064b"
