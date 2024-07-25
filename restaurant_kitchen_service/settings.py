@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_bootstrap4",
     "theme_material_kit",
+    "django_dropbox_storage",
     "storages"
 ]
 
@@ -85,6 +86,12 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
+DEFAULT_FILE_STORAGE = "django_dropbox_storage.storage.DropboxStorage"
+DROPBOX_CONSUMER_KEY = "p0a3p8kfi1twyfu"
+DROPBOX_CONSUMER_SECRET = "7dzbfwaxfh7064b"
+DROPBOX_ACCESS_TOKEN = "sl.B5pbR69GsiV54rhZDd08GW0BuxGTzvtupwGQ7lLK-X2t4FAR_L6M3vRLRa9P3ys9VUAgErgkQ_8LbG68Iso6kxS557SLsUTlxHO6HisTR5C0WpLrl6_oOlA_JVRGzOggrsGvf9v3NqQgs9srrCpOnC8"
+DROPBOX_ROOT_FOLDER = "/media_project"
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES["default"].update(db_from_env)
@@ -157,20 +164,18 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # DROPBOX_APP_SECRET = "7dzbfwaxfh7064b"
 # DROPBOX_APP_KEY = "p0a3p8kfi1twyfu"
 
-STORAGES = {
-    "default": {
-        "BACKEND": "storages.backends.dropbox.DropboxStorage",
-        "OPTIONS": {
-            "oauth2_access_token": "sl.B5pbR69GsiV54rhZDd08GW0BuxGTzvtupwGQ7lLK-X2t4FAR_L6M3vRLRa9P3ys9VUAgErgkQ_8LbG68Iso6kxS557SLsUTlxHO6HisTR5C0WpLrl6_oOlA_JVRGzOggrsGvf9v3NqQgs9srrCpOnC8",
-            "oauth2_refresh_token": "-iQS3myJ-KUAAAAAAAAAAWz5rRJmjtCeDmNaNpW2Z67Xu3POpTGkccyKMENLDfGj",
-            "app_secret": "7dzbfwaxfh7064b",
-            "app_key": "p0a3p8kfi1twyfu",
-            "root_path": "/media/"
-        },
-    },
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
-
-
+# STORAGES = {
+#     "default": {
+#         "BACKEND": "storages.backends.dropbox.DropboxStorage",
+#         "OPTIONS": {
+#             "oauth2_access_token": "sl.B5pbR69GsiV54rhZDd08GW0BuxGTzvtupwGQ7lLK-X2t4FAR_L6M3vRLRa9P3ys9VUAgErgkQ_8LbG68Iso6kxS557SLsUTlxHO6HisTR5C0WpLrl6_oOlA_JVRGzOggrsGvf9v3NqQgs9srrCpOnC8",
+#             "oauth2_refresh_token": "-iQS3myJ-KUAAAAAAAAAAWz5rRJmjtCeDmNaNpW2Z67Xu3POpTGkccyKMENLDfGj",
+#             "app_secret": "7dzbfwaxfh7064b",
+#             "app_key": "p0a3p8kfi1twyfu",
+#             "root_path": "/media/"
+#         },
+#     },
+#     "staticfiles": {
+#         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+#     },
+# }
