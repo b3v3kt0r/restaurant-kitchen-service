@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_bootstrap4",
     "theme_material_kit",
-    "storages"
 ]
 
 MIDDLEWARE = [
@@ -86,9 +85,9 @@ DATABASES = {
     }
 }
 #dropbox
-DEFAULT_FILE_STORAGE = "storages.backends.dropbox.DropboxStorage"
-DROPBOX_OAUTH2_TOKEN = "sl.B5shU1TWZowoaOh68fE-226pM4bLlSv_BrqOr-aUAQrPj42EzklXKLM9qgyRU9uanub3UCq2Cxk5WqqIfJ2Zae9DZsSJ0fd4KNlj8WuX0pORwxaNC2yWW7sqGbOqUYAbw-o4yFd9eRmZDRZaPIs0ST4"
-DROPBOX_ROOT_PATH = "/media_project"
+# DEFAULT_FILE_STORAGE = "storages.backends.dropbox.DropboxStorage"
+# DROPBOX_OAUTH2_TOKEN = "sl.B5shU1TWZowoaOh68fE-226pM4bLlSv_BrqOr-aUAQrPj42EzklXKLM9qgyRU9uanub3UCq2Cxk5WqqIfJ2Zae9DZsSJ0fd4KNlj8WuX0pORwxaNC2yWW7sqGbOqUYAbw-o4yFd9eRmZDRZaPIs0ST4"
+# DROPBOX_ROOT_PATH = "/media_project"
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES["default"].update(db_from_env)
@@ -133,8 +132,8 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
-MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "media"
+# MEDIA_URL = "/media/"
+# MEDIA_ROOT = BASE_DIR / "media"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
