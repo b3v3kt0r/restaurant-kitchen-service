@@ -5,8 +5,8 @@
 
 .table-actions {
     display: flex;
-    justify-content: center; /* Вирівнювання по горизонталі */
-    gap: 10px; /* Відстань між кнопками */
+    justify-content: center;
+    gap: 10px;
 }
 
 .form-control {
@@ -22,32 +22,29 @@
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-
-/* Додає стиль для посилань у таблиці страв */
 .table a {
-    color: #007bff; /* Колір посилання */
-    text-decoration: underline; /* Підкреслення посилання */
+    color: #007bff;
+    text-decoration: underline;
 }
 
 .table a:hover {
-    color: #0056b3; /* Темніший колір при наведенні */
-    text-decoration: none; /* Прибирає підкреслення при наведенні */
+    color: #0056b3;
+    text-decoration: none;
 }
 
 .card-img-top {
     width: 100%;
-    height: 350px; /* або будь-який інший розмір, який вам підходить */
-    object-fit: cover; /* Це дозволяє зображенням заповнювати контейнер */
+    height: 350px;
+    object-fit: cover;
 }
 
 .card-img {
     width: 100%;
     height: 160px;
-    object-fit: cover; /* Зберігає пропорції зображення, обрізаючи його при необхідності */
+    object-fit: cover;
 }
 
 .card {
-    /* Встановити фіксовану висоту картки */
     display: flex;
     flex-direction: column;
     justify-content: space-between;

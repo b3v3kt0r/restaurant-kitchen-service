@@ -19,11 +19,10 @@ class Dish(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
     price = models.DecimalField(max_digits=7, decimal_places=2)
-    dish_type = models.ForeignKey(DishType,
-                                  on_delete=models.CASCADE,
-                                  related_name="dishes")
-    cooks = models.ManyToManyField(settings.AUTH_USER_MODEL,
-                                   related_name="dishes")
+    dish_type = models.ForeignKey(
+        DishType, on_delete=models.CASCADE, related_name="dishes"
+    )
+    cooks = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="dishes")
     image_name = models.ImageField(null=True, blank=True)
 
     class Meta:
@@ -35,7 +34,9 @@ class Dish(models.Model):
 
 
 class Cook(AbstractUser):
-    years_of_experience = models.IntegerField(default=0, validators=[MinValueValidator(0)])
+    years_of_experience = models.IntegerField(
+        default=0, validators=[MinValueValidator(0)]
+    )
     image_name = models.ImageField(null=True, blank=True)
 
     class Meta:
