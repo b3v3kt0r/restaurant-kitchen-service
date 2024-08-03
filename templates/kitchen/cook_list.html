@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% load static %}
+{% block title %}Cooks List{% endblock title %}
+<head>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+{% block content %}
+  <div class="container mt-5 pt-5">
+    <div class="row justify-content-between mb-3">
+      <div class="col-12 mb-3">
+        <h1 class="d-flex justify-content-between align-items-center">
+          Cooks List
+          <a class="btn btn-primary" href="{% url 'kitchen:cook_create' %}">+</a>
+        </h1>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-12">
+        <form method="get" action="" class="form-inline mb-3">
+          <div class="input-group">
+            {{ search_form|crispy }}
+            <button type="submit" class="btn btn-primary ml-2">🔎</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    {% if cook_list %}
+      <div class="row">
+        {% for cook in cook_list %}
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{ cook.first_name }} {{ cook.last_name }}</h5>
+                <p class="card-text"><strong>Username:</strong> {{ cook.username }}</p>
+                <p class="card-text"><strong>Years of Experience:</strong> {{ cook.years_of_experience }}</p>
+                <a href="{% url 'kitchen:cook_detail' cook.id %}" class="btn btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="row">
+        <div class="col-12">
+          <div class="alert alert-warning" role="alert">
+            There are no cooks in the service.
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+{% endblock content %}
