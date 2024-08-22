@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% block title %}Dish Types List{% endblock title %}
+{% load static %}
+{% block content %}
+  <div class="container mt-5 pt-5">
+    <div class="row justify-content-between">
+      <div class="col-12 mb-3">
+        <h1 class="d-flex justify-content-between align-items-center">
+          Dish Types List
+          <a class="btn btn-primary" href="{% url 'kitchen:dish_type_create' %}">+</a>
+        </h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <form method="get" action="" class="form-inline mb-3">
+          <div class="input-group">
+            {{ search_form|crispy }}
+            <button type="submit" class="btn btn-primary ml-2">🔎</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    {% if dish_type_list %}
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th class="text-center">Update</th>
+                  <th class="text-center">Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for dish_type in dish_type_list %}
+                  <tr>
+                    <td>{{ dish_type.id }}</td>
+                    <td>{{ dish_type.name }}</td>
+                    <td class="text-center">
+                      <a class="btn btn-warning btn-sm" href="{% url 'kitchen:dish_type_update' dish_type.id %}">⚙️</a>
+                    </td>
+                    <td class="text-center">
+                      <a class="btn btn-danger btn-sm" href="{% url 'kitchen:dish_type_delete' dish_type.id %}">🗑️</a>
+                    </td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <div class="row">
+        <div class="col-12">
+          <div class="alert alert-warning" role="alert">
+            There are no dish types!
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+{% endblock content %}
